@@ -9,6 +9,12 @@ export const Colors = {
   gray10: '#F5F5F5',
   white: '#fff',
 
+  //blue
+  blue90: '#002766',
+  blue40: '#2673B3',
+  blue20: '#9FC2DF',
+  blue10: '#E2EDF6',
+
   // sun colors
   sunLight: '#EBB282',
   sun: '#CF5475',
