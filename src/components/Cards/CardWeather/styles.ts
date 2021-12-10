@@ -31,20 +31,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   temperature: {
-    fontFamily: Fonts.type.lora.bold,
     fontSize: Fonts.size.xbig,
+    textShadowColor: Colors.shadow,
+    textShadowOffset: {width: -0.5, height: 1},
+    textShadowRadius: 2,
+    fontFamily: Fonts.type.lora.bold,
   },
   weather: {
-    fontFamily: Fonts.type.lora.bold,
     fontSize: Fonts.size.h2,
+    textShadowColor: Colors.shadow,
+    textShadowOffset: {width: -0.5, height: 1},
+    textShadowRadius: 2,
+    fontFamily: Fonts.type.lora.bold,
   },
   city: {
-    fontFamily: Fonts.type.lora.bold,
     fontSize: Fonts.size.p,
+    textShadowColor: Colors.shadow,
+    textShadowOffset: {width: -0.5, height: 1},
+    textShadowRadius: 2,
+    fontFamily: Fonts.type.lora.bold,
   },
   day: {
-    fontFamily: Fonts.type.lora.bold,
     fontSize: Fonts.size.h1,
+    textShadowColor: Colors.shadow,
+    textShadowOffset: {width: -0.5, height: 1},
+    textShadowRadius: 2,
+    fontFamily: Fonts.type.lora.bold,
   },
 });
 

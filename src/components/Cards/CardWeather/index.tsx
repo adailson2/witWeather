@@ -45,7 +45,7 @@ export const CardWeather = ({city, region}: IProps) => {
       case 'Clouds': {
         setWeather({
           description: weather,
-          colors: [Colors.rainLight, Colors.rain],
+          colors: [Colors.gray30, Colors.gray60],
           icon: 'cloud',
           type: 'fontAwesome5',
           textColor: Colors.gray10,
@@ -142,6 +142,9 @@ export const CardWeather = ({city, region}: IProps) => {
                   styles.temperature,
                   {
                     color: weather.textColor,
+                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+                    textShadowOffset: {width: -0.5, height: 0.5},
+                    textShadowRadius: 2,
                   },
                 ]}>
                 {fields?.main?.temp.toFixed(0)}°
