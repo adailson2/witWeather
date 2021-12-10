@@ -1,11 +1,16 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {ScrollView} from 'react-native';
+import {CardWeather} from '../../components/Cards/CardWeather';
+
 import styles from './styles';
 
 export const CitiesScreen = () => {
   return (
-    <View>
-      <Text style={styles.text}>CitiesScreen</Text>
-    </View>
+    <ScrollView style={styles.container}>
+      <CardWeather weather="sun" />
+      <CardWeather weather="rain" />
+      <CardWeather weather="snow" />
+      <CardWeather weather="windy" />
+    </ScrollView>
   );
 };
