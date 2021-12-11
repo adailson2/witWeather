@@ -28,12 +28,13 @@ export const CitiesScreen = ({navigation}: any) => {
             style={styles.row}>
             <Text style={styles.textRow}>Current position</Text>
           </TouchableHighlight>
-          {cities.map(city => (
+          {cities.map((city, index) => (
             <TouchableHighlight
               activeOpacity={0.2}
               underlayColor={Colors.blue40}
               onPress={() => handleNavigate(false, city.name)}
-              style={styles.row}>
+              style={styles.row}
+              key={index.toString()}>
               <Text style={styles.textRow}>{city.name}</Text>
             </TouchableHighlight>
           ))}

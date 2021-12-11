@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {Region} from '../types/interfaces';
 const baseURL = 'https://maps.googleapis.com/maps/api/';
-const API_KEY = 'AIzaSyAMMNwM4ugu7_G8pfEzVerVNBY0nwJtBrU';
+import {GOOGLE_API_KEY} from '@env';
 
 export const getCityName = async (region: Region) => {
   try {
-    const query = `geocode/json?latlng=${region.latitude},${region.longitude}&key=${API_KEY}`;
+    const query = `geocode/json?latlng=${region.latitude},${region.longitude}&key=${GOOGLE_API_KEY}`;
 
     const address = baseURL + query;
 
@@ -26,7 +26,7 @@ export const getCityName = async (region: Region) => {
 
 export const getCoordinatesByCity = async (city: string) => {
   try {
-    const query = `geocode/json?address=${city}&key=${API_KEY}`;
+    const query = `geocode/json?address=${city}&key=${GOOGLE_API_KEY}`;
 
     const address = baseURL + query;
 
