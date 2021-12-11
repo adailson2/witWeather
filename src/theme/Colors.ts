@@ -8,6 +8,7 @@ export const Colors = {
   gray20: '#EDEDED',
   gray10: '#F5F5F5',
   white: '#fff',
+  transparent: 'rgba(255, 0, 0, 0)',
 
   //blue
   blue90: '#002766',
@@ -33,4 +34,8 @@ export const Colors = {
 
   // shadow
   shadow: 'rgba(0,0,0,0.80)',
+
+  // background
+  bkgLight: '#8FD0FB',
+  bkg: '#7788FA',
 };

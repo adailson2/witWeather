@@ -11,18 +11,16 @@ import Fonts from '../../../theme/Fonts';
 import styles from './styles';
 import IconIonics from 'react-native-vector-icons/Ionicons';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
-import {IWeather, IWeatherResponse, Region} from '../../../types/interfaces';
-import useWeather from '../../../hooks/useWeather';
+import {IDaily, IWeather} from '../../../types/interfaces';
+import {useCardWeather} from '../../../hooks/useCardWeather';
 
 interface IProps {
-  city?: string;
-  region?: Region;
-  hasCurrentPosition?: boolean;
+  daily?: IDaily;
+  index?: number;
+  cityName?: string;
 }
 
-export const CardWeather = ({city, region, hasCurrentPosition}: IProps) => {
-  const [weatherResponse, setWeatherResponse] =
-    useState<IWeatherResponse>(null);
+export const CardWeather = ({daily, index, cityName}: IProps) => {
   const [weather, setWeather] = useState<IWeather>({
     description: '',
     colors: [Colors.sunLight, Colors.sun],
@@ -30,99 +28,81 @@ export const CardWeather = ({city, region, hasCurrentPosition}: IProps) => {
     type: '',
     textColor: Colors.gray10,
   });
-  const [loading, setLoading] = useState(false);
-  const {handleResponse} = useWeather(
-    setWeather,
-    setLoading,
-    setWeatherResponse,
-    hasCurrentPosition,
-    city,
-    region,
-  );
+  const [day, setDay] = useState('');
+  const {defineDay, defineWeather} = useCardWeather(setWeather, index, setDay);
 
   useEffect(() => {
-    if (city?.length === 0 && !hasCurrentPosition) {
-      setLoading(true);
-    } else {
-      handleResponse();
-    }
-  }, [hasCurrentPosition]);
+    defineDay();
+    defineWeather(daily?.weather[0]?.main);
+  }, []);
 
   return (
-    <View style={styles.wrapper}>
-      {loading ? (
-        <View style={styles.loading}>
-          <ActivityIndicator color={Colors.blue90} size={'large'} />
-        </View>
-      ) : (
-        <LinearGradient
-          useAngle={true}
-          angle={-200}
-          colors={weather.colors}
-          style={styles.linearGradient}>
-          <React.Fragment>
-            <View style={{flexDirection: 'column'}}>
-              <Text
-                style={[
-                  styles.temperature,
-                  {
-                    color: weather.textColor,
-                    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                    textShadowOffset: {width: -0.5, height: 0.5},
-                    textShadowRadius: 2,
-                  },
-                ]}>
-                {weatherResponse?.main?.temp.toFixed(0)}°
-              </Text>
-              <Text
-                style={[
-                  styles.weather,
-                  {
-                    color: weather.textColor,
-                  },
-                ]}>
-                {weatherResponse?.weather?.[0]?.main}
-              </Text>
-              <Text
-                style={[
-                  styles.city,
-                  {
-                    color: weather.textColor,
-                  },
-                ]}>
-                {weatherResponse?.name + ', ' + weatherResponse?.sys?.country}
-              </Text>
-            </View>
-            <View>
-              {weather?.type === 'fontAwesome5' && (
-                <IconFA5
-                  name={weather?.icon}
-                  size={70}
-                  color={weather.textColor}
-                />
-              )}
-              {weather?.type === 'iconics' && (
-                <IconIonics
-                  name={weather?.icon}
-                  size={70}
-                  color={weather.textColor}
-                />
-              )}
-            </View>
-            <View>
-              <Text
-                style={[
-                  styles.day,
-                  {
-                    color: weather.textColor,
-                  },
-                ]}>
-                30
-              </Text>
-            </View>
-          </React.Fragment>
-        </LinearGradient>
-      )}
+    <View style={styles.wrapper} key={index.toString()}>
+      <LinearGradient
+        useAngle={true}
+        angle={-200}
+        colors={weather.colors}
+        style={styles.linearGradient}
+        key={index.toString()}>
+        <React.Fragment>
+          <View style={{flexDirection: 'column'}}>
+            <Text
+              style={[
+                styles.temperature,
+                {
+                  color: weather.textColor,
+                },
+              ]}>
+              {daily?.temp?.day?.toFixed(0)}°
+            </Text>
+            <Text
+              style={[
+                styles.weather,
+                {
+                  color: weather.textColor,
+                },
+              ]}>
+              {daily?.weather?.[0]?.main}
+            </Text>
+            <Text
+              style={[
+                styles.city,
+                {
+                  color: weather.textColor,
+                },
+              ]}>
+              {cityName}
+            </Text>
+          </View>
+          <View>
+            {weather?.type === 'fontAwesome5' && (
+              <IconFA5
+                name={weather?.icon}
+                size={70}
+                color={weather.textColor}
+              />
+            )}
+            {weather?.type === 'iconics' && (
+              <IconIonics
+                name={weather?.icon}
+                size={70}
+                color={weather.textColor}
+              />
+            )}
+          </View>
+          <View>
+            <Text
+              style={[
+                styles.day,
+                {
+                  color: weather.textColor,
+                },
+              ]}>
+              {day}
+            </Text>
+          </View>
+        </React.Fragment>
+      </LinearGradient>
     </View>
   );
 };

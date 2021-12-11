@@ -5,7 +5,7 @@ import Fonts from '../../theme/Fonts';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: '100%',
+    paddingHorizontal: 10,
   },
   textHeader: {
     fontFamily: Fonts.type.geomanist.regular,
@@ -13,20 +13,13 @@ const styles = StyleSheet.create({
     color: Colors.gray10,
   },
   header: {
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
     borderBottomColor: Colors.gray10,
     borderBottomWidth: 1,
   },
-  row: {
-    height: 60,
-    elevation: 8,
-    justifyContent: 'center',
-    paddingLeft: 20,
-  },
-  textRow: {
-    fontFamily: Fonts.type.geomanist.book,
-    fontSize: Fonts.size.h5,
-    color: Colors.gray10,
+  loading: {
+    marginTop: 40,
   },
 });
 

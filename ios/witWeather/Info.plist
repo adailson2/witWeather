@@ -24,6 +24,11 @@
 	<string>1</string>
 	<key>Fonts provided by application</key>
 	<array>
+		<string>Geomanist-Book.ttf</string>
+		<string>Geomanist-Regular-Italic.ttf</string>
+		<string>Geomanist-Medium.ttf</string>
+		<string>Geomanist-Bold.ttf</string>
+		<string>Geomanist.ttf</string>
 		<string>Lora-Regular.ttf</string>
 		<string>Lora-Medium.ttf</string>
 		<string>Lora-MediumItalic.ttf</string>
@@ -49,6 +54,8 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<string/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -68,6 +75,11 @@
 	<string>Essa permissão auxilia no preenchimento de sua localização nos campos requeridos.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Geomanist-Book.ttf</string>
+		<string>Geomanist-Regular-Italic.ttf</string>
+		<string>Geomanist-Medium.ttf</string>
+		<string>Geomanist-Bold.ttf</string>
+		<string>Geomanist.ttf</string>
 		<string>Lora-Regular.ttf</string>
 		<string>Lora-Medium.ttf</string>
 		<string>Lora-MediumItalic.ttf</string>

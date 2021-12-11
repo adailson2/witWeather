@@ -12,6 +12,11 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		6172F2D35A4C3AA820D92908 /* libPods-witWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-witWeather.a */; };
+		7006CF372764AF8D00391FE2 /* Geomanist-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7006CF322764AF8D00391FE2 /* Geomanist-Bold.ttf */; };
+		7006CF382764AF8D00391FE2 /* Geomanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7006CF332764AF8D00391FE2 /* Geomanist-Medium.ttf */; };
+		7006CF392764AF8D00391FE2 /* Geomanist-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7006CF342764AF8D00391FE2 /* Geomanist-Book.ttf */; };
+		7006CF3A2764AF8D00391FE2 /* Geomanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7006CF352764AF8D00391FE2 /* Geomanist.ttf */; };
+		7006CF3B2764AF8D00391FE2 /* Geomanist-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7006CF362764AF8D00391FE2 /* Geomanist-Regular-Italic.otf */; };
 		707FFC862762DC3000AD97DD /* Lora-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 707FFC7D2762DC3000AD97DD /* Lora-SemiBoldItalic.ttf */; };
 		707FFC882762DC3000AD97DD /* Lora-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 707FFC7E2762DC3000AD97DD /* Lora-BoldItalic.ttf */; };
 		707FFC8A2762DC3000AD97DD /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 707FFC7F2762DC3000AD97DD /* Lora-Regular.ttf */; };
@@ -62,6 +67,11 @@
 		5BCE856D14F74DD48A7E5BB3 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-witWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-witWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-witWeather-witWeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-witWeather-witWeatherTests.debug.xcconfig"; path = "Target Support Files/Pods-witWeather-witWeatherTests/Pods-witWeather-witWeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7006CF322764AF8D00391FE2 /* Geomanist-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Geomanist-Bold.ttf"; path = "../src/assets/fonts/Geomanist-Bold.ttf"; sourceTree = "<group>"; };
+		7006CF332764AF8D00391FE2 /* Geomanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Geomanist-Medium.ttf"; path = "../src/assets/fonts/Geomanist-Medium.ttf"; sourceTree = "<group>"; };
+		7006CF342764AF8D00391FE2 /* Geomanist-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Geomanist-Book.ttf"; path = "../src/assets/fonts/Geomanist-Book.ttf"; sourceTree = "<group>"; };
+		7006CF352764AF8D00391FE2 /* Geomanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Geomanist.ttf; path = ../src/assets/fonts/Geomanist.ttf; sourceTree = "<group>"; };
+		7006CF362764AF8D00391FE2 /* Geomanist-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Geomanist-Regular-Italic.otf"; path = "../src/assets/fonts/Geomanist-Regular-Italic.otf"; sourceTree = "<group>"; };
 		707FFC7D2762DC3000AD97DD /* Lora-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Lora-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		707FFC7E2762DC3000AD97DD /* Lora-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-BoldItalic.ttf"; path = "../src/assets/fonts/Lora-BoldItalic.ttf"; sourceTree = "<group>"; };
 		707FFC7F2762DC3000AD97DD /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-Regular.ttf"; path = "../src/assets/fonts/Lora-Regular.ttf"; sourceTree = "<group>"; };
@@ -173,6 +183,11 @@
 		707FFC4C2762C84C00AD97DD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				7006CF322764AF8D00391FE2 /* Geomanist-Bold.ttf */,
+				7006CF342764AF8D00391FE2 /* Geomanist-Book.ttf */,
+				7006CF332764AF8D00391FE2 /* Geomanist-Medium.ttf */,
+				7006CF362764AF8D00391FE2 /* Geomanist-Regular-Italic.otf */,
+				7006CF352764AF8D00391FE2 /* Geomanist.ttf */,
 				707FFC842762DC3000AD97DD /* Lora-Bold.ttf */,
 				707FFC7E2762DC3000AD97DD /* Lora-BoldItalic.ttf */,
 				707FFC812762DC3000AD97DD /* Lora-Italic.ttf */,
@@ -330,13 +345,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7006CF372764AF8D00391FE2 /* Geomanist-Bold.ttf in Resources */,
 				70C27B512762EBB5004B22F3 /* Lora-Bold.ttf in Resources */,
 				70C27B492762EAAB004B22F3 /* Lora-BoldItalic.ttf in Resources */,
 				70C27B4A2762EAAB004B22F3 /* Lora-Italic.ttf in Resources */,
 				70C27B4B2762EAAB004B22F3 /* Lora-Medium.ttf in Resources */,
+				7006CF382764AF8D00391FE2 /* Geomanist-Medium.ttf in Resources */,
+				7006CF3B2764AF8D00391FE2 /* Geomanist-Regular-Italic.otf in Resources */,
+				7006CF3A2764AF8D00391FE2 /* Geomanist.ttf in Resources */,
 				70C27B4C2762EAAB004B22F3 /* Lora-MediumItalic.ttf in Resources */,
 				70C27B4D2762EAAB004B22F3 /* Lora-Regular.ttf in Resources */,
 				70C27B4E2762EAAB004B22F3 /* Lora-SemiBold.ttf in Resources */,
+				7006CF392764AF8D00391FE2 /* Geomanist-Book.ttf in Resources */,
 				70C27B4F2762EAAB004B22F3 /* Lora-SemiBoldItalic.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,

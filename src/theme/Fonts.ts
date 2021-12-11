@@ -9,6 +9,13 @@ const type = {
     boldIt: 'Lora-BoldItalic',
     italic: 'Lora-Italic',
   },
+  geomanist: {
+    regular: 'Geomanist',
+    medium: 'Geomanist-Medium',
+    book: 'Geomanist-Book',
+    bold: 'Geomanist-Bold',
+    regularIt: 'Geomanist-Regular-Italic',
+  },
 };
 
 const size = {

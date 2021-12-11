@@ -4,7 +4,6 @@ import Fonts from '../../../theme/Fonts';
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: 200,
     marginTop: 14,
     shadowColor: Colors.shadow,
     shadowOffset: {
@@ -18,9 +17,8 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   linearGradient: {
-    height: 200,
     borderRadius: 6,
-    padding: 10,
+    padding: 20,
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'space-between',
@@ -35,28 +33,28 @@ const styles = StyleSheet.create({
     textShadowColor: Colors.shadow,
     textShadowOffset: {width: -0.5, height: 1},
     textShadowRadius: 2,
-    fontFamily: Fonts.type.lora.bold,
+    fontFamily: Fonts.type.geomanist.regular,
   },
   weather: {
     fontSize: Fonts.size.h2,
     textShadowColor: Colors.shadow,
     textShadowOffset: {width: -0.5, height: 1},
     textShadowRadius: 2,
-    fontFamily: Fonts.type.lora.bold,
+    fontFamily: Fonts.type.geomanist.regular,
   },
   city: {
     fontSize: Fonts.size.p,
     textShadowColor: Colors.shadow,
     textShadowOffset: {width: -0.5, height: 1},
     textShadowRadius: 2,
-    fontFamily: Fonts.type.lora.bold,
+    fontFamily: Fonts.type.geomanist.regular,
   },
   day: {
     fontSize: Fonts.size.h1,
     textShadowColor: Colors.shadow,
     textShadowOffset: {width: -0.5, height: 1},
     textShadowRadius: 2,
-    fontFamily: Fonts.type.lora.bold,
+    fontFamily: Fonts.type.geomanist.regular,
   },
 });
 

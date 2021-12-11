@@ -1,19 +1,17 @@
-import {useCallback} from 'react';
-import {
-  getByGeographicCoordinates,
-  getByName,
-} from '../services/OpenWeatherService';
 import {Colors} from '../theme/Colors';
-import {IWeather, IWeatherResponse, Region} from '../types/interfaces';
+import {IWeather} from '../types/interfaces';
 
-function useWeather(
+export const useCardWeather = (
   setWeather: (weather: IWeather) => void,
-  setLoading: (loading: boolean) => void,
-  setWeatherResponse: (weatherResponse: IWeatherResponse) => void,
-  hasCurrentPosition: boolean,
-  city?: string,
-  region?: Region,
-) {
+  index: number,
+  setDay: (day: string) => void,
+) => {
+  const defineDay = () => {
+    const today = new Date().getDate();
+    const sumDate = today + index;
+    setDay(sumDate.toString());
+  };
+
   const defineWeather = (description: string) => {
     switch (description) {
       case 'Rain': {
@@ -95,31 +93,8 @@ function useWeather(
     }
   };
 
-  const handleResponse = useCallback(async () => {
-    try {
-      setLoading(true);
-      let response: IWeatherResponse = null;
-
-      if (city?.length > 0) {
-        response = await getByName(city);
-      } else {
-        response = await getByGeographicCoordinates(region);
-      }
-      console.dev(response);
-      if (response) {
-        setWeatherResponse(response);
-        defineWeather(response?.weather?.[0]?.main);
-        setLoading(false);
-      }
-    } catch (error: any) {
-      setLoading(false);
-      console.dev('Erro ao consultar a API');
-    }
-  }, [hasCurrentPosition]);
-
   return {
-    handleResponse,
+    defineDay,
+    defineWeather,
   };
-}
-
-export default useWeather;
+};

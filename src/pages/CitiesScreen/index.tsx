@@ -1,53 +1,44 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {ScrollView, Text} from 'react-native';
-import {CardWeather} from '../../components/Cards/CardWeather';
+import React from 'react';
+import {ScrollView, Text, TouchableHighlight, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {cities} from '../../data/cities';
-import Geolocation from '@react-native-community/geolocation';
-
+import {Colors} from '../../theme/Colors';
 import styles from './styles';
 
-export const CitiesScreen = () => {
-  const initialStates = {
-    currentPosition: {
-      latitude: 0,
-      longitude: 0,
-    },
-    hasCurrentPosition: false,
+export const CitiesScreen = ({navigation}: any) => {
+  const handleNavigate = (currentPosition: boolean, cityName?: string) => {
+    navigation.navigate('WeatherDaily', {
+      currentPosition,
+      cityName,
+    });
   };
-  const [fields, setFields] = useState(initialStates);
-
-  const getCurrentPosition = async () => {
-    Geolocation.getCurrentPosition(
-      async ({coords: {latitude, longitude}}) => {
-        setFields({
-          currentPosition: {latitude, longitude},
-          hasCurrentPosition: true,
-        });
-      },
-      error => {
-        if (__DEV__) {
-          console.dev(error.code, error.message);
-          setFields(initialStates);
-        }
-      },
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-    );
-  };
-
-  useEffect(() => {
-    getCurrentPosition();
-  }, []);
 
   return (
-    <ScrollView style={styles.container}>
-      <CardWeather
-        region={fields.currentPosition}
-        hasCurrentPosition={fields.hasCurrentPosition}
-      />
-
-      {cities.map(city => (
-        <CardWeather city={city.name} />
-      ))}
-    </ScrollView>
+    <LinearGradient colors={[Colors.bkgLight, Colors.bkg]} style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}}>
+        <View style={styles.header}>
+          <Text style={styles.textHeader}>Select city</Text>
+        </View>
+        <ScrollView style={styles.container}>
+          <TouchableHighlight
+            activeOpacity={0.2}
+            underlayColor={Colors.blue40}
+            onPress={() => handleNavigate(true)}
+            style={styles.row}>
+            <Text style={styles.textRow}>Current position</Text>
+          </TouchableHighlight>
+          {cities.map(city => (
+            <TouchableHighlight
+              activeOpacity={0.2}
+              underlayColor={Colors.blue40}
+              onPress={() => handleNavigate(false, city.name)}
+              style={styles.row}>
+              <Text style={styles.textRow}>{city.name}</Text>
+            </TouchableHighlight>
+          ))}
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 };

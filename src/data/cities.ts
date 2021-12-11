@@ -12,7 +12,7 @@ export const cities = [
     name: 'Berlim',
   },
   {
-    name: 'Copenhaga,',
+    name: 'Copenhaga',
   },
   {
     name: 'Roma',
