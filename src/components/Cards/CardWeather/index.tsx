@@ -11,16 +11,19 @@ import Fonts from '../../../theme/Fonts';
 import styles from './styles';
 import IconIonics from 'react-native-vector-icons/Ionicons';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
-import {IWeatherResponse, Region} from '../../../types/interfaces';
+import {IWeather, IWeatherResponse, Region} from '../../../types/interfaces';
+import useWeather from '../../../hooks/useWeather';
 
 interface IProps {
   city?: string;
   region?: Region;
+  hasCurrentPosition?: boolean;
 }
 
-export const CardWeather = ({city, region}: IProps) => {
-  const [fields, setFields] = useState<IWeatherResponse>(null);
-  const [weather, setWeather] = useState({
+export const CardWeather = ({city, region, hasCurrentPosition}: IProps) => {
+  const [weatherResponse, setWeatherResponse] =
+    useState<IWeatherResponse>(null);
+  const [weather, setWeather] = useState<IWeather>({
     description: '',
     colors: [Colors.sunLight, Colors.sun],
     icon: '',
@@ -28,100 +31,22 @@ export const CardWeather = ({city, region}: IProps) => {
     textColor: Colors.gray10,
   });
   const [loading, setLoading] = useState(false);
-
-  const defineWeather = (weather: string) => {
-    switch (weather) {
-      case 'Rain': {
-        setWeather({
-          description: weather,
-          colors: [Colors.rainLight, Colors.rain],
-          icon: 'cloud-showers-heavy',
-          type: 'fontAwesome5',
-          textColor: Colors.gray10,
-        });
-        break;
-      }
-
-      case 'Clouds': {
-        setWeather({
-          description: weather,
-          colors: [Colors.gray30, Colors.gray60],
-          icon: 'cloud',
-          type: 'fontAwesome5',
-          textColor: Colors.gray10,
-        });
-        break;
-      }
-
-      case 'Snow': {
-        setWeather({
-          description: weather,
-          colors: [Colors.snowLight, Colors.snow],
-          icon: 'snowflake',
-          type: 'fontAwesome5',
-          textColor: Colors.black,
-        });
-        break;
-      }
-
-      case 'Mist': {
-        setWeather({
-          description: weather,
-          colors: [Colors.snowLight, Colors.snow],
-          icon: 'snowflake',
-          type: 'fontAwesome5',
-          textColor: Colors.black,
-        });
-        break;
-      }
-
-      case 'Clear': {
-        setWeather({
-          description: weather,
-          colors: [Colors.sunLight, Colors.sun], // change to blue
-          icon: 'sunny',
-          type: 'iconics',
-          textColor: Colors.gray10,
-        });
-        break;
-      }
-
-      default: {
-        setWeather({
-          description: weather,
-          colors: [Colors.rainLight, Colors.rain], // change to blue
-          icon: 'sunny',
-          type: 'iconics',
-          textColor: Colors.gray10,
-        });
-        break;
-      }
-    }
-  };
-
-  const handleResponse = useCallback(async () => {
-    try {
-      setLoading(true);
-      let response: IWeatherResponse = null;
-      if (city?.length > 0) {
-        response = await getByName(city);
-      } else {
-        response = await getByGeographicCoordinates(region);
-      }
-      if (response) {
-        setFields(response);
-        defineWeather(response?.weather?.[0]?.main);
-        setLoading(false);
-      }
-    } catch (error: any) {
-      setLoading(false);
-      console.dev('Erro ao consultar a API');
-    }
-  }, []);
+  const {handleResponse} = useWeather(
+    setWeather,
+    setLoading,
+    setWeatherResponse,
+    hasCurrentPosition,
+    city,
+    region,
+  );
 
   useEffect(() => {
-    handleResponse();
-  }, []);
+    if (city?.length === 0 && !hasCurrentPosition) {
+      setLoading(true);
+    } else {
+      handleResponse();
+    }
+  }, [hasCurrentPosition]);
 
   return (
     <View style={styles.wrapper}>
@@ -147,7 +72,7 @@ export const CardWeather = ({city, region}: IProps) => {
                     textShadowRadius: 2,
                   },
                 ]}>
-                {fields?.main?.temp.toFixed(0)}°
+                {weatherResponse?.main?.temp.toFixed(0)}°
               </Text>
               <Text
                 style={[
@@ -156,7 +81,7 @@ export const CardWeather = ({city, region}: IProps) => {
                     color: weather.textColor,
                   },
                 ]}>
-                {fields?.weather?.[0]?.main}
+                {weatherResponse?.weather?.[0]?.main}
               </Text>
               <Text
                 style={[
@@ -165,7 +90,7 @@ export const CardWeather = ({city, region}: IProps) => {
                     color: weather.textColor,
                   },
                 ]}>
-                {fields?.name + ', ' + fields?.sys?.country}
+                {weatherResponse?.name + ', ' + weatherResponse?.sys?.country}
               </Text>
             </View>
             <View>

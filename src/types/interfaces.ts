@@ -45,3 +45,11 @@ export interface IWeatherResponse {
   name: string;
   cod: number;
 }
+
+export interface IWeather {
+  description: string;
+  colors: [string, string];
+  icon: string;
+  type: string;
+  textColor: string;
+}
