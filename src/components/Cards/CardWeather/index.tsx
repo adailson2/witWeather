@@ -9,6 +9,9 @@ import {
 import {Colors} from '../../../theme/Colors';
 import Fonts from '../../../theme/Fonts';
 import styles from './styles';
+import IconFeather from 'react-native-vector-icons/Feather';
+import IconEntypo from 'react-native-vector-icons/Entypo';
+
 import IconIonics from 'react-native-vector-icons/Ionicons';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 import {IDaily, IWeather} from '../../../types/interfaces';
@@ -45,7 +48,8 @@ export const CardWeather = ({daily, index, cityName}: IProps) => {
         style={styles.linearGradient}
         key={index.toString()}>
         <React.Fragment>
-          <View style={{flexDirection: 'column'}}>
+          <View
+            style={{flexDirection: 'column', justifyContent: 'space-between'}}>
             <Text
               style={[
                 styles.temperature,
@@ -54,6 +58,16 @@ export const CardWeather = ({daily, index, cityName}: IProps) => {
                 },
               ]}>
               {daily?.temp?.day?.toFixed(0)}°
+            </Text>
+            <Text
+              style={[
+                styles.tempBottom,
+                {
+                  color: weather.textColor,
+                },
+              ]}>
+              H: {daily?.temp?.max?.toFixed(0)}° L:{' '}
+              {daily?.temp?.min?.toFixed(0)}°
             </Text>
             <Text
               style={[
@@ -90,7 +104,8 @@ export const CardWeather = ({daily, index, cityName}: IProps) => {
               />
             )}
           </View>
-          <View>
+          <View
+            style={{alignItems: 'flex-end', justifyContent: 'space-between'}}>
             <Text
               style={[
                 styles.day,
@@ -100,6 +115,36 @@ export const CardWeather = ({daily, index, cityName}: IProps) => {
               ]}>
               {day}
             </Text>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <IconFeather name={'wind'} size={30} color={weather.textColor} />
+              <Text
+                style={[
+                  styles.bottom,
+                  {
+                    color: weather.textColor,
+                  },
+                ]}>
+                {daily.wind_speed}
+              </Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <IconEntypo name={'drop'} size={30} color={weather.textColor} />
+
+              <Text
+                style={[
+                  styles.bottom,
+                  {
+                    color: weather.textColor,
+                  },
+                ]}>
+                {daily.humidity}
+              </Text>
+            </View>
           </View>
         </React.Fragment>
       </LinearGradient>

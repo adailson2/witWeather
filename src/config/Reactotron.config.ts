@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 const reactotron = Reactotron.configure({
   name: 'Mobb',
-  host: '192.168.1.7',
+  host: '172.20.10.4',
   port: 9090,
 })
   .setAsyncStorageHandler(AsyncStorage)

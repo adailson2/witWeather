@@ -35,12 +35,20 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
     fontFamily: Fonts.type.geomanist.regular,
   },
+  tempBottom: {
+    fontSize: Fonts.size.h5,
+    textShadowColor: Colors.shadow,
+    textShadowOffset: {width: -0.5, height: 1},
+    textShadowRadius: 2,
+    fontFamily: Fonts.type.geomanist.regular,
+  },
   weather: {
     fontSize: Fonts.size.h2,
     textShadowColor: Colors.shadow,
     textShadowOffset: {width: -0.5, height: 1},
     textShadowRadius: 2,
     fontFamily: Fonts.type.geomanist.regular,
+    marginTop: 16,
   },
   city: {
     fontSize: Fonts.size.p,
@@ -50,11 +58,20 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.type.geomanist.regular,
   },
   day: {
+    fontSize: Fonts.size.big,
+    textShadowColor: Colors.shadow,
+    textShadowOffset: {width: -0.5, height: 1},
+    textShadowRadius: 2,
+    fontFamily: Fonts.type.geomanist.regular,
+  },
+  bottom: {
     fontSize: Fonts.size.h1,
     textShadowColor: Colors.shadow,
     textShadowOffset: {width: -0.5, height: 1},
     textShadowRadius: 2,
     fontFamily: Fonts.type.geomanist.regular,
+    marginTop: 10,
+    marginLeft: 6,
   },
 });
 
